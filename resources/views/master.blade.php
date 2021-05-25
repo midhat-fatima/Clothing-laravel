@@ -20,6 +20,31 @@
             height:500px;
             padding-top:100px;
         }
+        img.slider-img{
+            height:400px !important;
+        }
+        .custom-product{
+            height:600px;
+        }
+        .slider-text{
+            background-color: #0000007a !important;
+        }
+        .treading-img{
+            height:100px;
+        }
+        .treading-item{
+            float:left;
+            width:20%;
+        }
+        .treading-wrapper{
+            margin:20px;
+        }
+        .detail-img{
+            height:200px;
+        }
+        .search-box{
+            width:500px !important;
+        }
     </style>
 </head>
 <body>
