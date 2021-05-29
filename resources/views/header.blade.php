@@ -8,7 +8,7 @@ if(Session::has('user')) {
 }
 ?>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -24,7 +24,7 @@ if(Session::has('user')) {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="/">Home</a></li>
         <li class="active"><a href="/myorder">Order</a></li>
       </ul>
       <form action="/search" class="navbar-form navbar-left">
