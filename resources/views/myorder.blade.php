@@ -4,7 +4,8 @@
 <div class="custom-product">
     <div class="col-sm-10">
         <div class="treading-wrapper">
-            <h2>Orders List</h2>
+            <h2>Thank You !!!! Orders List</h2>
+            <br><br>
             <div class="">
                 @foreach($orders as $item)
                     <div class="row searching-item cart-list-divider">

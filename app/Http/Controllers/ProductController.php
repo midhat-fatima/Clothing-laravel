@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Product;
+use Session;
 use App\Models\Cart;
 use App\Models\Order;
-use Session;
+use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
@@ -37,7 +40,7 @@ class ProductController extends Controller
             $cart->user_id=$req->session()->get('user')['id'];
             $cart->product_id=$req->product_id;
             $cart->save();
-            return redirect('/');;
+            return redirect('cartlist');;
         }
         else {
             return redirect('/login');
@@ -96,6 +99,18 @@ class ProductController extends Controller
             $order->save();
         }   
         Cart::where('user_id', $userId)->delete();
+
+        if($order['payment_method'] == 'payment') {
+            $email = $userId;
+            $message_data = [
+                'email' =>  $email,
+                'name'  =>  $name,
+                'order_id' =>  $cart,
+            ];
+            Mail::send('thanksemail', $message_data, function ($message) use($email){
+                $message->to(User::where(['email'=>$req->email])->first())->subject('Your Oreder From Clothing Has Been Placed');
+            });
+        }
         return redirect('/');
     }
 
